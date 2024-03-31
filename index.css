@@ -70,6 +70,17 @@
     padding: 2px 0px;
 }
 
+.body-top {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.filter-btn {
+    cursor: pointer;
+    margin: 10px;
+}
+
 .search {
     padding: 10px;
 }
