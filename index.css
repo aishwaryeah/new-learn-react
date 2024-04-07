@@ -101,3 +101,16 @@
 .search {
     padding: 10px;
 }
+
+.user-card {
+    width: 200px;
+    height: 250px;
+    background-color: white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.user-card:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
