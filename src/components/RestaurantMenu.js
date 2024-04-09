@@ -15,12 +15,12 @@ const RestaurantMenu = () => {
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
   return (
-    <div className="res-menu">
-      <h1>{name}</h1>
-      <p>
+    <div className="res-menu grid place-content-center">
+      <h1 className="pt-8 pb-2 font-bold text-xl">{name}</h1>
+      <p className="text-sm">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
-      <h2>Menu</h2>
+      <h2 className="pt-8 pb-4 font-bold text-md">Menu</h2>
       <ul>
         {itemCards.map((item) => (
           <li key={item.card.info.id}>
