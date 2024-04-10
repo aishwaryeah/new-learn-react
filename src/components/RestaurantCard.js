@@ -22,4 +22,21 @@ const RestaurantCard = (props) => {
   );
 };
 
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    const { resData } = props;
+    const { aggregatedDiscountInfoV3 } = resData?.info;
+    return (
+      <div>
+        <label className="absolute text-white font-extrabold text-xl pt-36 pl-12">
+          {aggregatedDiscountInfoV3?.header +
+            " " +
+            aggregatedDiscountInfoV3?.subHeader}
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;
