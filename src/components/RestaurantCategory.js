@@ -9,6 +9,7 @@ const RestaurantCategory = ({ catData, showItems, setShowIndex }) => {
   };
   return (
     <div className="bg-gray-100">
+      {console.log(catData)}
       {/* Accordion Header */}
       <div className="w-6/12 mx-auto my-2 py-2 bg-white shadow-lg p-4">
         <div

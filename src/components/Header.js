@@ -5,11 +5,13 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
 import User from "./User";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnLogin, setBtnLogin] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="header flex justify-between shadow-lg">
       <div className="logo-container">
@@ -27,7 +29,9 @@ const Header = () => {
           <li className="px-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-4">Cart</li>
+          <li className="px-4">
+            <Link to="/cart">Cart - ({cartItems.length} items)</Link>
+          </li>
           <button
             className="px-4"
             onClick={() => {

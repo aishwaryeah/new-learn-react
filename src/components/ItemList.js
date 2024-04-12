@@ -1,6 +1,13 @@
 import { ITEM_IMG_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
+
   return (
     <div>
       {items.map((item) => (
@@ -19,16 +26,26 @@ const ItemList = ({ items }) => {
               </span>
               <br></br>
               <span className="text-xs">
-                {item?.card?.info?.ratings?.aggregatedRating !== ""
-                  ? item?.card?.info?.ratings?.aggregatedRating?.rating
-                  : " "}
+                {item?.card?.info?.ratings?.aggregatedRating &&
+                item?.card?.info?.ratings?.aggregatedRating.rating &&
+                item?.card?.info?.ratings?.aggregatedRating.ratingCountV2 ? (
+                  <>
+                    {item?.card?.info?.ratings?.aggregatedRating.rating} (
+                    {item?.card?.info?.ratings?.aggregatedRating.ratingCountV2})
+                  </>
+                ) : (
+                  ""
+                )}
               </span>
             </div>
             <p className="text-xs pb-6">{item?.card?.info?.description}</p>
           </div>
           <div className="w-3/12">
             <div className="absolute bottom-8 right-3.5">
-              <button className="px-2 pr-2 mr-2.5 ml-2.5 bg-white border border-gray-300 shadow-inner text-green-500 font-bold">
+              <button
+                className="px-2 pr-2 mr-2.5 ml-2.5 bg-white border border-gray-300 shadow-inner text-green-500 font-bold"
+                onClick={() => handleAddItem(item)}
+              >
                 ADD
               </button>
             </div>
